@@ -1,10 +1,9 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-<<<<<<< HEAD
+
     id("kotlin-kapt")
-=======
->>>>>>> d925eef (Create new project)
+
 }
 
 android {
