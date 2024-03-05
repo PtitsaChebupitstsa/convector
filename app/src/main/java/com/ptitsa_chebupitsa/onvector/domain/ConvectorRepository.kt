@@ -5,5 +5,5 @@ import androidx.lifecycle.LiveData
 interface ConvectorRepository {
     fun getCurrencyInfo(charCode: String): LiveData<CurrencyInfo>
     fun getCurrencyList(): LiveData<List<CurrencyInfo>>
-    fun loadData()
+    suspend fun loadData()
 }

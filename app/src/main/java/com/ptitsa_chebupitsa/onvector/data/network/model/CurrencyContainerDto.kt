@@ -24,10 +24,10 @@ class CurrencyContainerDto(
     var name: String?,
     @SerializedName("Value")
     @Expose
-    var value: Double?,
+    var value: String,
     @SerializedName("Previous")
     @Expose
-    var previous: Double?
+    var previous: String
 
 
 )

@@ -4,8 +4,10 @@ import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 data class CurrencyNameContainerDto(
+    @SerializedName("Date")
+    @Expose
+    val data:String?,
     @SerializedName("Valute")
     @Expose
-    var currency:List<CurrencyNameDto>?=null
-
+    val currency:Map<String,CurrencyContainerDto>
 )
