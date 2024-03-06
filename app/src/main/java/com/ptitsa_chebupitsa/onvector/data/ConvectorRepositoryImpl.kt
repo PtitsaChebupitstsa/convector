@@ -4,11 +4,15 @@ import android.app.Application
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.map
+import androidx.work.ExistingWorkPolicy
+import androidx.work.WorkManager
 import com.ptitsa_chebupitsa.onvector.data.db.ConvectorDao
 import com.ptitsa_chebupitsa.onvector.data.db.CurrencyItemDbModel
 import com.ptitsa_chebupitsa.onvector.data.mapper.ConvectorMapper
 import com.ptitsa_chebupitsa.onvector.data.network.ApiFactory
+import com.ptitsa_chebupitsa.onvector.data.network.ApiFactory.apiService
 import com.ptitsa_chebupitsa.onvector.data.network.ApiService
+import com.ptitsa_chebupitsa.onvector.data.workers.RefreshDataWorker
 import com.ptitsa_chebupitsa.onvector.domain.ConvectorRepository
 import com.ptitsa_chebupitsa.onvector.domain.CurrencyInfo
 import kotlinx.coroutines.delay
@@ -33,9 +37,16 @@ class ConvectorRepositoryImpl @Inject constructor(
     }
 
     override suspend fun loadData() {
+//     val workManager = WorkManager.getInstance(application)
+//        workManager.enqueueUniqueWork(
+//            RefreshDataWorker.NAME,
+//            ExistingWorkPolicy.REPLACE,
+//            RefreshDataWorker.makeRequest()
+//        )
+
         while (true) {
             try {
-                val currencyContainer = ApiFactory.apiService.getCurrencyList()
+                val currencyContainer = apiService.getCurrencyList()
                 val coinInfoList =
                     mapper.mapCurrencyContainerToListCurrencyInfoList(currencyContainer)
                 Log.d("loadData", coinInfoList.toString())

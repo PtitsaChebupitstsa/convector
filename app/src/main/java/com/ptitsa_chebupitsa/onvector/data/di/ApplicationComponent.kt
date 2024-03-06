@@ -1,7 +1,7 @@
 package com.ptitsa_chebupitsa.onvector.data.di
 
 import android.app.Application
-import com.ptitsa_chebupitsa.onvector.MainActivity
+import com.ptitsa_chebupitsa.onvector.presentation.MainActivity
 import com.ptitsa_chebupitsa.onvector.data.di.annotation.ApplicationScope
 import dagger.BindsInstance
 import dagger.Component
