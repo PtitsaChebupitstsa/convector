@@ -20,9 +20,6 @@ class ConvectorRepositoryImpl @Inject constructor(
     private val convectorDao: ConvectorDao
 ) : ConvectorRepository {
 
-    init {
-
-    }
     override fun getCurrencyInfo(charCode: String): LiveData<CurrencyInfo> {
         val currencyInfo = convectorDao.getCurrencyInfoAboutItem(charCode)
         return currencyInfo.map { mapper.mapDbCurrencyModelToEntity(it) }
