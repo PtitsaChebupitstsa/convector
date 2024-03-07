@@ -27,7 +27,7 @@
             android:authorities="androidx.work.WorkManagerInitializer"
             android:name="androidx.startup.InitializationProvider"
             tools:replace="android:authorities"
-            tools:node="replace" />
+            tools:node="remove" />
     </application>
 
 </manifest>
