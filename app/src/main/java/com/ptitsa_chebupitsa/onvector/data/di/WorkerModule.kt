@@ -12,5 +12,5 @@ interface WorkerModule {
     @Binds
     @IntoMap
     @WorkerKey(RefreshDataWorker::class)
-    fun bindsRefreshDataWorkerFactory(worker: RefreshDataWorker.Factory):ChildWorkFactory
+    fun bindsRefreshDataWorkerFactory(worker: RefreshDataWorker.Factory): ChildWorkFactory
 }

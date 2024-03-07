@@ -3,6 +3,7 @@ package com.ptitsa_chebupitsa.onvector.data.workers
 import android.content.Context
 import android.util.Log
 import androidx.work.CoroutineWorker
+
 import androidx.work.ListenableWorker
 import androidx.work.OneTimeWorkRequest
 import androidx.work.OneTimeWorkRequestBuilder
@@ -34,6 +35,12 @@ class RefreshDataWorker(
             delay(1000)
         }
     }
+    companion object {
+        const val NAME = "RefreshDataWorker"
+        fun makeRequest(): OneTimeWorkRequest {
+            return OneTimeWorkRequestBuilder<RefreshDataWorker>().build()
+        }
+    }
 
     class Factory @Inject constructor(
         private val convectorDao: ConvectorDao,
@@ -51,11 +58,5 @@ class RefreshDataWorker(
 
     }
 
-    companion object {
-        const val NAME = "ConvectorWorker"
-        fun makeRequest(): OneTimeWorkRequest {
-            return OneTimeWorkRequestBuilder<RefreshDataWorker>().build()
-        }
-    }
 
 }

@@ -36,28 +36,30 @@ class ConvectorRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun loadData() {
-//     val workManager = WorkManager.getInstance(application)
-//        workManager.enqueueUniqueWork(
-//            RefreshDataWorker.NAME,
-//            ExistingWorkPolicy.REPLACE,
-//            RefreshDataWorker.makeRequest()
-//        )
-
-        while (true) {
-            try {
-                val currencyContainer = apiService.getCurrencyList()
-                val coinInfoList =
-                    mapper.mapCurrencyContainerToListCurrencyInfoList(currencyContainer)
-                Log.d("loadData", coinInfoList.toString())
-                convectorDao.insertCurrencyList(coinInfoList)
-            } catch (e: Exception) {
-                Log.d("loadData", e.toString())
-            }
-            delay(1000)
-        }
+    override fun loadData() {
+        val workManager = WorkManager.getInstance(application)
+        workManager.enqueueUniqueWork(
+            RefreshDataWorker.NAME,
+            ExistingWorkPolicy.REPLACE,
+            RefreshDataWorker.makeRequest()
+        )
     }
 }
+
+//        while (true) {
+//            try {
+//                val currencyContainer = apiService.getCurrencyList()
+//                val coinInfoList =
+//                    mapper.mapCurrencyContainerToListCurrencyInfoList(currencyContainer)
+//                Log.d("loadData", coinInfoList.toString())
+//                convectorDao.insertCurrencyList(coinInfoList)
+//            } catch (e: Exception) {
+//                Log.d("loadData", e.toString())
+//            }
+//            delay(1000)
+//        }
+
+
 
 
 
