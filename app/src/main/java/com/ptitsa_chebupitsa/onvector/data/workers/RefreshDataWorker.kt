@@ -27,12 +27,12 @@ class RefreshDataWorker(
                 val currencyContainer = apiService.getCurrencyList()
                 val coinInfoList =
                     mapper.mapCurrencyContainerToListCurrencyInfoList(currencyContainer)
-                Log.d("loadData", coinInfoList.toString())
+                Log.d("loadData", coinInfoList.size.toString())
                 convectorDao.insertCurrencyList(coinInfoList)
             } catch (e: Exception) {
                 Log.d("loadData", e.toString())
             }
-            delay(1000)
+            delay(3600000)
         }
     }
     companion object {

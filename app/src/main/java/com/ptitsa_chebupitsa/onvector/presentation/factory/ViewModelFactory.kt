@@ -1,4 +1,4 @@
-package com.ptitsa_chebupitsa.onvector.presentation
+package com.ptitsa_chebupitsa.onvector.presentation.factory
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

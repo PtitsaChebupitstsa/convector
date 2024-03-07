@@ -1,0 +1,7 @@
+package com.ptitsa_chebupitsa.onvector.presentation.holder
+
+import androidx.recyclerview.widget.RecyclerView
+import com.ptitsa_chebupitsa.onvector.databinding.CurrencyItemBinding
+import com.ptitsa_chebupitsa.onvector.databinding.FragmentCurrencyListBinding
+
+class CurrencyListHolder(val binding:CurrencyItemBinding):RecyclerView.ViewHolder(binding.root)

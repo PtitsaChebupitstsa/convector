@@ -4,6 +4,7 @@ import android.app.Application
 import com.ptitsa_chebupitsa.onvector.ConvectorApp
 import com.ptitsa_chebupitsa.onvector.presentation.MainActivity
 import com.ptitsa_chebupitsa.onvector.data.di.annotation.ApplicationScope
+import com.ptitsa_chebupitsa.onvector.presentation.CurrencyListFragment
 import dagger.BindsInstance
 import dagger.Component
 
@@ -12,6 +13,7 @@ import dagger.Component
 interface ApplicationComponent {
     fun inject(activity: MainActivity)
     fun inject(application: ConvectorApp)
+    fun inject(fragment:CurrencyListFragment)
 
     @Component.Factory
     interface Factory{
