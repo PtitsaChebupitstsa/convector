@@ -13,6 +13,7 @@ import com.ptitsa_chebupitsa.onvector.data.network.ApiFactory
 import com.ptitsa_chebupitsa.onvector.data.network.ApiFactory.apiService
 import com.ptitsa_chebupitsa.onvector.data.network.ApiService
 import com.ptitsa_chebupitsa.onvector.data.workers.RefreshDataWorker
+import com.ptitsa_chebupitsa.onvector.domain.ConvectCurrency
 import com.ptitsa_chebupitsa.onvector.domain.ConvectorRepository
 import com.ptitsa_chebupitsa.onvector.domain.CurrencyInfo
 import kotlinx.coroutines.delay
@@ -44,20 +45,15 @@ class ConvectorRepositoryImpl @Inject constructor(
             RefreshDataWorker.makeRequest()
         )
     }
+
+    override fun convectCurrency(value: Double): LiveData<List<ConvectCurrency>> {
+        val currencyList = getCurrencyList()
+        return currencyList.map {
+            mapper.mapCurrencyListToConvectCurrencyList(it, value)
+        }
+    }
 }
 
-//        while (true) {
-//            try {
-//                val currencyContainer = apiService.getCurrencyList()
-//                val coinInfoList =
-//                    mapper.mapCurrencyContainerToListCurrencyInfoList(currencyContainer)
-//                Log.d("loadData", coinInfoList.toString())
-//                convectorDao.insertCurrencyList(coinInfoList)
-//            } catch (e: Exception) {
-//                Log.d("loadData", e.toString())
-//            }
-//            delay(1000)
-//        }
 
 
 
