@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.fragment.app.FragmentContainerView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/fragment_container"
-    android:name="com.ptitsa_chebupitsa.onvector.presentation.CurrencyListFragment"
+    android:name="com.ptitsa_chebupitsa.onvector.presentation.CurrencyConvectTest"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 

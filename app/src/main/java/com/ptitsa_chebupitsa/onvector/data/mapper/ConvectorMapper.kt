@@ -22,7 +22,7 @@ class ConvectorMapper @Inject constructor() {
         name = currencyList.name,
         value = currencyList.value,
         previous = currencyList.previous,
-        convectValue = value  / (currencyList.previous ?: 1.0)/ (currencyList.nominal ?: 1)
+        convectValue = value  / ((currencyList.previous?:1.0 )/ (currencyList.nominal ?: 1))
         //todo заменить магаческие цифры 1.0 и 1 на компаьен обджект
     )
 

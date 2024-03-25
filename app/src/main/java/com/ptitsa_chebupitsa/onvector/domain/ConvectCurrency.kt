@@ -7,5 +7,11 @@ data class ConvectCurrency(
     val name:String?,
     val value:Double?,
     val previous:Double?,
-    val convectValue:Double?,
-)
+    val convectValue:Double ?= DEF_VALUE,
+){
+    companion object{
+        const val DEF_VALUE = 0.0
+    }
+
+
+}

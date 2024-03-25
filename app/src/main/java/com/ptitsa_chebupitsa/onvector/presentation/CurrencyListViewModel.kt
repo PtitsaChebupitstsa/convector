@@ -9,12 +9,11 @@ import javax.inject.Inject
 class CurrencyListViewModel @Inject constructor(
     private val loadDataUseCase: LoadDataUseCase,
     private val getCurrencyListUseCase: GetCurrencyListUseCase,
-    private val getCurrencyInfoUseCase: GetCurrencyInfoUseCase
 ):ViewModel(){
 
     val currencyInfoList = getCurrencyListUseCase()
 
-    fun getDetailInfo(charCode:String)= getCurrencyInfoUseCase(charCode)
+
 
     init {
         loadDataUseCase()

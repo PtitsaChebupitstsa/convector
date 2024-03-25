@@ -45,9 +45,9 @@ class ConvectorRepositoryImpl @Inject constructor(
             RefreshDataWorker.makeRequest()
         )
     }
-
+    private var currencyList: LiveData<List<CurrencyInfo>> = getCurrencyList()
     override fun convectCurrency(value: Double): LiveData<List<ConvectCurrency>> {
-        val currencyList = getCurrencyList()
+        currencyList = getCurrencyList()
         return currencyList.map {
             mapper.mapCurrencyListToConvectCurrencyList(it, value)
         }
